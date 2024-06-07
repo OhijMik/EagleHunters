@@ -52,5 +52,6 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if "Eagle" in body.name:
-		self.queue_free()
-		body.queue_free()
+		body.death()
+		queue_free()
+		#body.queue_free()
