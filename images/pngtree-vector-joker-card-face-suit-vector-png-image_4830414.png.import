@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb0fsnxjg5lwa"
-path="res://.godot/imported/pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png-9dacf9496d05704776b041dd6eb92f20.ctex"
+path="res://.godot/imported/pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png-8490b4f29a95f7af39a3176efaf967fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png"
-dest_files=["res://.godot/imported/pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png-9dacf9496d05704776b041dd6eb92f20.ctex"]
+source_file="res://images/pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png"
+dest_files=["res://.godot/imported/pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png-8490b4f29a95f7af39a3176efaf967fc.ctex"]
 
 [params]
 

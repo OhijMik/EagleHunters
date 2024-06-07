@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcllsqg7pyqhl"
-path="res://.godot/imported/hearts_joker.png-43525abb5badc39cedd01f4fe41e4292.ctex"
+uid="uid://dtgmeuuiexvk6"
+path="res://.godot/imported/3ofClubs.png-08b1842e6e65d0103c9618678b90b0c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hearts_joker.png"
-dest_files=["res://.godot/imported/hearts_joker.png-43525abb5badc39cedd01f4fe41e4292.ctex"]
+source_file="res://images/cards/3ofClubs.png"
+dest_files=["res://.godot/imported/3ofClubs.png-08b1842e6e65d0103c9618678b90b0c6.ctex"]
 
 [params]
 

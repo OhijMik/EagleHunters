@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8atvdtus0ibk"]
 
-[ext_resource type="Texture2D" uid="uid://cb0fsnxjg5lwa" path="res://pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png" id="1_enm65"]
 [ext_resource type="Script" path="res://player.gd" id="1_ihvwx"]
+[ext_resource type="Texture2D" uid="uid://cb0fsnxjg5lwa" path="res://images/pngtree-vector-joker-card-face-suit-vector-png-image_4830414.png" id="2_k5rhu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opygu"]
 radius = 32.0
@@ -13,7 +13,7 @@ script = ExtResource("1_ihvwx")
 [node name="JokerImg" type="Sprite2D" parent="."]
 position = Vector2(6.10352e-05, 3.05176e-05)
 scale = Vector2(0.238182, 0.256233)
-texture = ExtResource("1_enm65")
+texture = ExtResource("2_k5rhu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_opygu")
