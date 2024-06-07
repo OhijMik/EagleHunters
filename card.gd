@@ -41,7 +41,7 @@ func _ready():
 
 
 func _process(delta):
-	if position.x < -100 or position.x > 1200 or position.y < -100 or position.y > 700:
+	if position.x < -100 or position.x > 1200 or position.y < -100 or position.y > 620:
 		self.queue_free()
 	
 
