@@ -50,9 +50,9 @@ collision_mask = 2
 slide_on_ceiling = false
 script = ExtResource("1_xpsxi")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_dn6rj")
 
@@ -67,4 +67,4 @@ libraries = {
 "": SubResource("AnimationLibrary_ag1r8")
 }
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
