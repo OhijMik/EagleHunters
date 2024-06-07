@@ -7,10 +7,10 @@ var cards = ["2ofClubs.png", "3ofClubs.png", "4ofClubs.png", "5ofClubs.png",
 			 "6ofClubs.png", "7ofClubs.png", "8ofClubs.png", "9ofClubs.png",
 			 "10ofClubs.png", "JofClubs.png", "QofClubs.png", "KofClubs.png",
 			 "AofClubs.png",
-			 "2ofHeart.png", "3ofHeart.png", "4ofHeart.png", "5ofHeart.png", 
-			 "6ofHeart.png", "7ofHeart.png", "8ofHeart.png", "9ofHeart.png",
-			 "10ofHeart.png", "JofHeart.png", "QofHeart.png", "KofHeart.png",
-			 "AofHeart.png",
+			 "2ofHearts.png", "3ofHearts.png", "4ofHearts.png", "5ofHearts.png", 
+			 "6ofHearts.png", "7ofHearts.png", "8ofHearts.png", "9ofHearts.png",
+			 "10ofHearts.png", "JofHearts.png", "QofHearts.png", "KofHearts.png",
+			 "AofHearts.png",
 			"2ofDiamonds.png", "3ofDiamonds.png", "4ofDiamonds.png", "5ofDiamonds.png", 
 			 "6ofDiamonds.png", "7ofDiamonds.png", "8ofDiamonds.png", "9ofDiamonds.png",
 			 "10ofDiamonds.png", "JofDiamonds.png", "QofDiamonds.png", "KofDiamonds.png",
@@ -22,12 +22,24 @@ var cards = ["2ofClubs.png", "3ofClubs.png", "4ofClubs.png", "5ofClubs.png",
 
 func _ready():
 	var rng = RandomNumberGenerator.new()
-	var random_card = rng.randi_range(0, 52)
+	var random_card = cards[rng.randi_range(0, 51)]
+	print(random_card)
+	$Sprite2D.texture = load("res://images/cards/" + random_card)
 	
-	$Sprite2D.texture = load("res://images/cards/3ofClubs.png")
+	var mouse_pos = get_global_mouse_position()
+	
+	var player = get_node("/root/Game_scene/Player")
+
+	var direction = (mouse_pos - position).normalized()
+	velocity.x = direction.x * SPEED
+	velocity.y = direction.y * SPEED
+	look_at(mouse_pos)
+
+
+func _process(delta):
+	if position.x < -100 or position.x > 1200 or position.y < -100 or position.y > 700:
+		self.queue_free()
 
 
 func _physics_process(delta):
-	# velocity = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()

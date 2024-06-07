@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
+var card = preload("res://card.tscn")
 
 
 func _physics_process(delta):
