@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+@onready var anim_player = $AnimationPlayer
+
 var cards = ["2ofClubs.png", "3ofClubs.png", "4ofClubs.png", "5ofClubs.png", 
 			 "6ofClubs.png", "7ofClubs.png", "8ofClubs.png", "9ofClubs.png",
 			 "10ofClubs.png", "JofClubs.png", "QofClubs.png", "KofClubs.png",
@@ -34,11 +36,14 @@ func _ready():
 	velocity.x = direction.x * SPEED
 	velocity.y = direction.y * SPEED
 	look_at(mouse_pos)
+	rotate(PI/2)
+	anim_player.play("Flying")
 
 
 func _process(delta):
 	if position.x < -100 or position.x > 1200 or position.y < -100 or position.y > 700:
 		self.queue_free()
+	
 
 
 func _physics_process(delta):
