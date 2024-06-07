@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 1000.0
 
 @onready var anim_player = $AnimationPlayer
 
@@ -25,7 +25,7 @@ var cards = ["2ofClubs.png", "3ofClubs.png", "4ofClubs.png", "5ofClubs.png",
 func _ready():
 	var rng = RandomNumberGenerator.new()
 	var random_card = cards[rng.randi_range(0, 51)]
-	print(random_card)
+
 	$Sprite2D.texture = load("res://images/cards/" + random_card)
 	
 	var mouse_pos = get_global_mouse_position()
@@ -41,10 +41,16 @@ func _ready():
 
 
 func _process(delta):
-	if position.x < -100 or position.x > 1200 or position.y < -100 or position.y > 620:
+	if position.x < 0 or position.x > 1750 or position.y < 0 or position.y > 620:
 		self.queue_free()
 	
 
 
 func _physics_process(delta):
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body):
+	if "Eagle" in body.name:
+		self.queue_free()
+		body.queue_free()

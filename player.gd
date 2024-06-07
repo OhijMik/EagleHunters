@@ -36,5 +36,5 @@ func _physics_process(delta):
 	
 	if velocity.y > 0:
 		anim.play("fall")
-	print(anim)
+
 	move_and_slide()

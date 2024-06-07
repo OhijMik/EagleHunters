@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://ceoromrgpcicw"]
+
+[ext_resource type="Script" path="res://eagle.gd" id="1_6obbw"]
+[ext_resource type="Texture2D" uid="uid://o5crdjsx8xyu" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/eagle/eagle-attack-1.png" id="1_76y6d"]
+[ext_resource type="Texture2D" uid="uid://cia4vwkl0xmu3" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/eagle/eagle-attack-2.png" id="2_0c5sr"]
+[ext_resource type="Texture2D" uid="uid://sbh1p854pco4" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/eagle/eagle-attack-3.png" id="3_ajnwx"]
+[ext_resource type="Texture2D" uid="uid://ybacfw3q4qjl" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/eagle/eagle-attack-4.png" id="4_i0x7m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3d6eh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_76y6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0c5sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ajnwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i0x7m")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0iydw"]
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_mgddc"]
+resource_name = "flying"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"flying"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_0xws0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"flying"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8qoo"]
+_data = {
+"RESET": SubResource("Animation_0xws0"),
+"flying": SubResource("Animation_mgddc")
+}
+
+[node name="Eagle" type="CharacterBody2D"]
+script = ExtResource("1_6obbw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_3d6eh")
+animation = &"flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0iydw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k8qoo")
+}

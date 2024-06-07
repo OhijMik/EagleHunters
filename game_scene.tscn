@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj7t2jo5i3t2v"]
+[gd_scene load_steps=12 format=3 uid="uid://dj7t2jo5i3t2v"]
 
 [ext_resource type="PackedScene" uid="uid://b8atvdtus0ibk" path="res://player.tscn" id="1_ha1fd"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_mevtx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dh0bnit3tvl8q" path="res://sunny-land/assets/environment/tileset.png" id="2_cgrym"]
 [ext_resource type="Texture2D" uid="uid://cka0issqq26dj" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/Background/middle.png" id="4_rl881"]
 [ext_resource type="Texture2D" uid="uid://dld8nr8ybumqw" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/Background/props.png" id="5_kki5m"]
+[ext_resource type="PackedScene" uid="uid://ceoromrgpcicw" path="res://eagle.tscn" id="7_n64aq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2qqp"]
 texture = ExtResource("2_cgrym")
@@ -907,3 +908,6 @@ layer_0/tile_data = PackedInt32Array(2424855, 65536, 11, 2490391, 65536, 12, 242
 
 [node name="Player" parent="." instance=ExtResource("1_ha1fd")]
 position = Vector2(576, 320)
+
+[node name="Eagle" parent="." instance=ExtResource("7_n64aq")]
+position = Vector2(744, 416)
