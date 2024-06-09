@@ -55,35 +55,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_mgddc"]
-resource_name = "flying"
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"flying"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_0xws0"]
 length = 0.001
 tracks/0/type = "value"
@@ -139,6 +110,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_mgddc"]
+resource_name = "flying"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"flying"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k8qoo"]
 _data = {
 "RESET": SubResource("Animation_0xws0"),
@@ -180,6 +180,23 @@ shape = SubResource("CircleShape2D_0iydw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_iqfxh")
+
+[node name="HealthBar" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 32.0
+offset_bottom = -32.0
+color = Color(0, 1, 0, 1)
+
+[node name="HealthText" type="Label" parent="."]
+offset_left = -15.0
+offset_top = -41.0
+offset_right = 16.0
+offset_bottom = -30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "10"
+horizontal_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

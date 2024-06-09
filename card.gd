@@ -22,11 +22,40 @@ var cards = ["2ofClubs.png", "3ofClubs.png", "4ofClubs.png", "5ofClubs.png",
 			 "10ofSpades.png", "JofSpades.png", "QofSpades.png", "KofSpades.png",
 			 "AofSpades.png"]
 
+var damage
+
 func _ready():
 	var rng = RandomNumberGenerator.new()
 	var random_card = cards[rng.randi_range(0, 51)]
 
 	$Sprite2D.texture = load("res://images/cards/" + random_card)
+	
+	if "2" in random_card:
+		damage = 2
+	elif "3" in random_card:
+		damage = 3
+	elif "4" in random_card:
+		damage = 4
+	elif "5" in random_card:
+		damage = 5
+	elif "6" in random_card:
+		damage = 6
+	elif "7" in random_card:
+		damage = 7
+	elif "8" in random_card:
+		damage = 8
+	elif "9" in random_card:
+		damage = 9
+	elif "10" in random_card:
+		damage = 10
+	elif "J" in random_card:
+		damage = 11
+	elif "Q" in random_card:
+		damage = 12
+	elif "K" in random_card:
+		damage = 13
+	elif "A" in random_card:
+		damage = 1000
 	
 	var mouse_pos = get_global_mouse_position()
 	
@@ -52,6 +81,6 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if "Eagle" in body.name:
-		body.death()
+		body.hp -= damage
 		queue_free()
-		#body.queue_free()
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dj7t2jo5i3t2v"]
+[gd_scene load_steps=13 format=3 uid="uid://dj7t2jo5i3t2v"]
 
 [ext_resource type="PackedScene" uid="uid://b8atvdtus0ibk" path="res://player.tscn" id="1_ha1fd"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_mevtx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cka0issqq26dj" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/Background/middle.png" id="4_rl881"]
 [ext_resource type="Texture2D" uid="uid://dld8nr8ybumqw" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/Background/props.png" id="5_kki5m"]
 [ext_resource type="PackedScene" uid="uid://ceoromrgpcicw" path="res://eagle.tscn" id="7_n64aq"]
+[ext_resource type="Texture2D" uid="uid://t2j4i7vix34r" path="res://images/cards/2ofClubs.png" id="8_ofdm6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2qqp"]
 texture = ExtResource("2_cgrym")
@@ -911,3 +912,10 @@ position = Vector2(576, 320)
 
 [node name="Eagle" parent="." instance=ExtResource("7_n64aq")]
 position = Vector2(1056, 416)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(112, 952)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("8_ofdm6")
