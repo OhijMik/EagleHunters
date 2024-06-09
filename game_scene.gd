@@ -28,6 +28,9 @@ func _process(delta):
 		var wave_text = get_node("UI/Wave")
 		wave_text.text = "Wave: " + str(Global.wave)
 		
+		var eagles_count = get_node("UI/EaglesCount")
+		eagles_count.text = "Eagles Slain: " + str(Global.eagles_slain)
+		
 		next_card.texture = load("res://images/cards/" + Global.next_card)
 
 

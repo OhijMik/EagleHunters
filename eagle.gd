@@ -22,10 +22,10 @@ func _process(delta):
 	get_node("HealthText").text = str(hp)
 	health_bar.size.x = 64 * (hp/Global.eagle_hp)
 	
-	if position.x < 0 or position.x > 1750 or velocity.x == 0:
+	if position.x < 0 or position.x > 1750:
 		queue_free()
 	
-	if hp <= 0 and not dead:
+	if hp <= 0:
 		death()
 
 
@@ -51,7 +51,10 @@ func death():
 	
 	velocity = Vector2.ZERO
 	dead = true
-	Global.eagle_killed += 1
+	
+	if not $EagleDeathSound.playing:
+		Global.eagles_slain += 1
+		$EagleDeathSound.play()
 	anim.play("death")
 
 
@@ -73,3 +76,4 @@ func _on_hitbox_body_entered(body):
 
 func _on_animation_player_animation_finished(anim_name):
 	queue_free()
+

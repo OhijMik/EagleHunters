@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ceoromrgpcicw"]
+[gd_scene load_steps=21 format=3 uid="uid://ceoromrgpcicw"]
 
 [ext_resource type="Script" path="res://eagle.gd" id="1_6obbw"]
 [ext_resource type="Texture2D" uid="uid://o5crdjsx8xyu" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/eagle/eagle-attack-1.png" id="1_76y6d"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dxt38dv15xy6x" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/enemy-death/enemy-death-4.png" id="5_3p63h"]
 [ext_resource type="Texture2D" uid="uid://c42ps7enksiy0" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/enemy-death/enemy-death-5.png" id="6_dfj63"]
 [ext_resource type="Texture2D" uid="uid://ccuke7kfsufrg" path="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/sprites/enemy-death/enemy-death-6.png" id="7_2vhau"]
+[ext_resource type="AudioStream" uid="uid://de3ffg7h25qgu" path="res://SoundEffects/pixel-death-66829.mp3" id="12_tniar"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3d6eh"]
 animations = [{
@@ -199,6 +200,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
 text = "10"
 horizontal_alignment = 1
+
+[node name="EagleDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_tniar")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
