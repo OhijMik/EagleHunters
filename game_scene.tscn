@@ -919,3 +919,18 @@ position = Vector2(1056, 416)
 position = Vector2(112, 952)
 scale = Vector2(2.375, 2.375)
 texture = ExtResource("8_ofdm6")
+
+[node name="Wave" type="Label" parent="UI"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Wave: 1"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

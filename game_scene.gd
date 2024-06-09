@@ -16,4 +16,11 @@ func _process(delta):
 		card_temp.position = $Player.position
 		add_child(card_temp)
 	
+	var wave_text = get_node("UI/Wave")
+	wave_text.text = "Wave: " + str(Global.wave)
+	
 	next_card.texture = load("res://images/cards/" + Global.next_card)
+
+
+func _on_timer_timeout():
+	Global.wave += 1
