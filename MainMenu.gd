@@ -7,6 +7,12 @@ func _ready():
 
 
 func _on_start_button_pressed():
+	Global.eagle_hp = 10.0
+	Global.eagle_damage = 1
+	Global.eagles_slain = 0
+	Global.next_card = "2ofClubs.png"
+	Global.wave = 1
+	Global.paused = false
 	get_tree().change_scene_to_file("res://game_scene.tscn")
 
 

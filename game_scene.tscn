@@ -940,7 +940,7 @@ theme_override_font_sizes/font_size = 51
 text = "Back to Main Menu"
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]

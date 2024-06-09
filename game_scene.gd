@@ -10,6 +10,7 @@ var count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.position = Vector2(576, 320)
+	$EnemySpawnTimer.wait_time = 2.0
 	audio_player.play()
 
 
