@@ -21,31 +21,32 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	var direction = Input.get_axis("left", "right")
-	
-	if direction == -1:
-		get_node("AnimatedSprite2D").flip_h = true
-	elif direction == 1:
-		get_node("AnimatedSprite2D").flip_h = false
-	
-	if direction:
-		velocity.x = direction * SPEED
-		if velocity.y == 0:
-			anim.play("run")
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if velocity.y == 0:
-			anim.play("idle")
+	if not Global.paused:
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		
+		var direction = Input.get_axis("left", "right")
+		
+		if direction == -1:
+			get_node("AnimatedSprite2D").flip_h = true
+		elif direction == 1:
+			get_node("AnimatedSprite2D").flip_h = false
+		
+		if direction:
+			velocity.x = direction * SPEED
+			if velocity.y == 0:
+				anim.play("run")
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if velocity.y == 0:
+				anim.play("idle")
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		anim.play("jump")
-	
-	if velocity.y > 0:
-		anim.play("fall")
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			anim.play("jump")
+		
+		if velocity.y > 0:
+			anim.play("fall")
 
-	move_and_slide()
+		move_and_slide()

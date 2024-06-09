@@ -30,18 +30,19 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if follow and not dead:
-		var direction = (player.position - position).normalized()
+	if not Global.paused:
+		if follow and not dead:
+			var direction = (player.position - position).normalized()
+			
+			velocity.x = direction.x * ATTACK_SPEED
+			velocity.y = direction.y * ATTACK_SPEED
+			
+		if velocity.x > 0:
+			get_node("AnimatedSprite2D").flip_h = true
+		else:
+			get_node("AnimatedSprite2D").flip_h = false
 		
-		velocity.x = direction.x * ATTACK_SPEED
-		velocity.y = direction.y * ATTACK_SPEED
-		
-	if velocity.x > 0:
-		get_node("AnimatedSprite2D").flip_h = true
-	else:
-		get_node("AnimatedSprite2D").flip_h = false
-	
-	move_and_slide()
+		move_and_slide()
 
 
 func death():
