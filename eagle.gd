@@ -65,7 +65,6 @@ func _on_range_body_entered(body):
 
 
 func _on_hitbox_body_entered(body):
-	print("hi")
 	if body.name == "Player" and not dead:
 		queue_free()
 		body.hp -= Global.eagle_damage
