@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 200.0
 const ATTACK_SPEED = 300.0
 
+
 @onready var anim = get_node("AnimationPlayer")
 @onready var health_bar = get_node("HealthBar")
 @onready var health_text = get_node("HealthText")
@@ -24,7 +25,7 @@ func _process(delta):
 	if position.x < 0 or position.x > 1750 or velocity.x == 0:
 		queue_free()
 	
-	if hp <= 0:
+	if hp <= 0 and not dead:
 		death()
 
 
@@ -46,6 +47,7 @@ func _physics_process(delta):
 func death():
 	health_bar.hide()
 	health_text.hide()
+	
 	velocity = Vector2.ZERO
 	dead = true
 	Global.eagle_killed += 1

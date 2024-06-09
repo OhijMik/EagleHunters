@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2ft7a0miolum"
+path="res://.godot/imported/card-sounds-35956.mp3-30a9014691f45b75433ab66eb7da4ee9.mp3str"
+
+[deps]
+
+source_file="res://Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/card-sounds-35956.mp3"
+dest_files=["res://.godot/imported/card-sounds-35956.mp3-30a9014691f45b75433ab66eb7da4ee9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
