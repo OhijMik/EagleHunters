@@ -28,34 +28,36 @@ func _ready():
 	var rng = RandomNumberGenerator.new()
 	var random_card = cards[rng.randi_range(0, 51)]
 
-	$Sprite2D.texture = load("res://images/cards/" + random_card)
+	$Sprite2D.texture = load("res://images/cards/" + Global.next_card)
 	
-	if "2" in random_card:
+	if "2" in Global.next_card:
 		damage = 2
-	elif "3" in random_card:
+	elif "3" in Global.next_card:
 		damage = 3
-	elif "4" in random_card:
+	elif "4" in Global.next_card:
 		damage = 4
-	elif "5" in random_card:
+	elif "5" in Global.next_card:
 		damage = 5
-	elif "6" in random_card:
+	elif "6" in Global.next_card:
 		damage = 6
-	elif "7" in random_card:
+	elif "7" in Global.next_card:
 		damage = 7
-	elif "8" in random_card:
+	elif "8" in Global.next_card:
 		damage = 8
-	elif "9" in random_card:
+	elif "9" in Global.next_card:
 		damage = 9
-	elif "10" in random_card:
+	elif "10" in Global.next_card:
 		damage = 10
-	elif "J" in random_card:
+	elif "J" in Global.next_card:
 		damage = 11
-	elif "Q" in random_card:
+	elif "Q" in Global.next_card:
 		damage = 12
-	elif "K" in random_card:
+	elif "K" in Global.next_card:
 		damage = 13
-	elif "A" in random_card:
+	elif "A" in Global.next_card:
 		damage = 1000
+	
+	Global.next_card = random_card
 	
 	var mouse_pos = get_global_mouse_position()
 	
