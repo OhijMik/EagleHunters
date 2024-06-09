@@ -15,6 +15,9 @@ var hp = 10.0
 func _process(delta):
 	get_node("HealthText").text = str(hp)
 	health_bar.size.x = 64 * (hp/10.0)
+	
+	if hp <= 0:
+		get_tree().change_scene_to_file("res://end_menu.tscn")
 
 
 func _physics_process(delta):

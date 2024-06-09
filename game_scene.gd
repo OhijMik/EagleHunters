@@ -5,10 +5,12 @@ var eagle = preload("res://eagle.tscn")
 var count = 0
 
 @onready var next_card = get_node("UI/NextCard")
+@onready var audio_player = get_node("AudioStreamPlayer2D")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.position = Vector2(576, 320)
+	audio_player.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,12 +45,16 @@ func _on_enemy_spawn_timer_timeout():
 	count += 1
 
 	if random_x == 0:
-		var random_y = rng.randi_range(300, 510)
+		var random_y = rng.randi_range(200, 510)
 		eagle_temp.position = Vector2(0, random_y)
 		eagle_temp.velocity.x = 200
 	else:
-		var random_y = rng.randi_range(300, 600)
+		var random_y = rng.randi_range(200, 600)
 		eagle_temp.position = Vector2(1750, 420)
 		eagle_temp.velocity.x = -200
 		
 	add_child(eagle_temp)
+
+
+func _on_audio_stream_player_2d_finished():
+	audio_player.play()

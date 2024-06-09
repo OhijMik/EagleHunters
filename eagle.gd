@@ -48,6 +48,7 @@ func death():
 	health_text.hide()
 	velocity = Vector2.ZERO
 	dead = true
+	Global.eagle_killed += 1
 	anim.play("death")
 
 
