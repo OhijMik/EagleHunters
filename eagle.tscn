@@ -153,7 +153,7 @@ radius = 216.0
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqfxh"]
-radius = 32.0
+radius = 27.2947
 
 [node name="Eagle" type="CharacterBody2D"]
 script = ExtResource("1_6obbw")

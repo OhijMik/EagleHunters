@@ -5,8 +5,16 @@ const SPEED = 500.0
 const JUMP_VELOCITY = -800.0
 
 var gravity = 1400
+var hp = 10.0
 
 @onready var anim = get_node("AnimationPlayer")
+@onready var health_bar = get_node("HealthBar")
+@onready var health_text = get_node("HealthText")
+
+
+func _process(delta):
+	get_node("HealthText").text = str(hp)
+	health_bar.size.x = 64 * (hp/10.0)
 
 
 func _physics_process(delta):
