@@ -11,9 +11,7 @@ const ATTACK_SPEED = 300.0
 var follow = false
 var dead = false
 var player
-
 var hp = Global.eagle_hp
-
 
 func _ready():
 	anim.play("flying")
@@ -23,7 +21,7 @@ func _process(delta):
 	get_node("HealthText").text = str(hp)
 	health_bar.size.x = 64 * (hp/Global.eagle_hp)
 	
-	if position.x < 0 or position.x > 1750:
+	if position.x < 0 or position.x > 1750 or velocity.x == 0:
 		queue_free()
 	
 	if hp <= 0:
@@ -37,12 +35,10 @@ func _physics_process(delta):
 		velocity.x = direction.x * ATTACK_SPEED
 		velocity.y = direction.y * ATTACK_SPEED
 		
-		if velocity.x > 0:
-			get_node("AnimatedSprite2D").flip_h = true
-		else:
-			get_node("AnimatedSprite2D").flip_h = false
-	elif not dead:
-		velocity.x = -1 * SPEED
+	if velocity.x > 0:
+		get_node("AnimatedSprite2D").flip_h = true
+	else:
+		get_node("AnimatedSprite2D").flip_h = false
 	
 	move_and_slide()
 

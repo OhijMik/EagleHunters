@@ -1,6 +1,8 @@
 extends Node2D
 
 var card = preload("res://card.tscn")
+var eagle = preload("res://eagle.tscn")
+var count = 0
 
 @onready var next_card = get_node("UI/NextCard")
 
@@ -24,3 +26,29 @@ func _process(delta):
 
 func _on_timer_timeout():
 	Global.wave += 1
+	if Global.wave % 5 == 0:
+		Global.eagle_hp += 2
+		Global.eagle_damage += 1
+	if Global.wave % 3 == 0:
+		var enemy_timer = get_node("EnemySpawnTimer")
+		enemy_timer.wait_time -= 0.05
+
+
+func _on_enemy_spawn_timer_timeout():
+	var rng = RandomNumberGenerator.new()
+	var random_x = rng.randi_range(0, 1)
+	
+	var eagle_temp = eagle.instantiate()
+	eagle_temp.name = "Eagle" + str(count)
+	count += 1
+
+	if random_x == 0:
+		var random_y = rng.randi_range(300, 510)
+		eagle_temp.position = Vector2(0, random_y)
+		eagle_temp.velocity.x = 200
+	else:
+		var random_y = rng.randi_range(300, 600)
+		eagle_temp.position = Vector2(1750, 420)
+		eagle_temp.velocity.x = -200
+		
+	add_child(eagle_temp)

@@ -22,7 +22,7 @@ var cards = ["2ofClubs.png", "3ofClubs.png", "4ofClubs.png", "5ofClubs.png",
 			 "10ofSpades.png", "JofSpades.png", "QofSpades.png", "KofSpades.png",
 			 "AofSpades.png"]
 
-var damage
+var damage = 1
 
 func _ready():
 	var rng = RandomNumberGenerator.new()
@@ -84,5 +84,9 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if "Eagle" in body.name:
 		body.hp -= damage
+		if damage < 11:
+			queue_free()
+	elif "Player" not in body.name:
 		queue_free()
+	
 
