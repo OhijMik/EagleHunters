@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	var label = get_node("Label")
 	label.text = "You survived until wave " + str(Global.wave) + "!!\n\n" + \
-				 "You have killed " + str(Global.eagle_killed) + " eagles!!"
+				 "You have killed " + str(Global.eagles_slain) + " eagles!!"
 
 
 func _on_button_pressed():
